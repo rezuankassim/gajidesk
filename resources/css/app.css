@@ -141,3 +141,96 @@
         @apply bg-background text-foreground;
     }
 }
+
+.payroll-shell,
+.payroll-theme {
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-secondary: var(--muted);
+    --color-secondary-foreground: var(--foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-card: var(--card);
+    --color-card-foreground: var(--foreground);
+    --color-background: var(--background);
+    --foreground: #171b21;
+    --primary: #275bb5;
+    --primary-foreground: #fff;
+    --muted: #eff1f4;
+    --muted-foreground: #525b67;
+    --accent: #e9f0fd;
+    --accent-foreground: #204e99;
+    --border: #dce0e5;
+    --input: #c9cfd7;
+    --ring: #467bdb;
+    --card: #fff;
+    --background: #f6f7f9;
+    --payroll-ready-bg: #e1f6f2;
+    --payroll-ready-border: #b8e5de;
+    --payroll-ready-text: #16645e;
+    --payroll-review-bg: #fcf3df;
+    --payroll-review-border: #ebd2a1;
+    --payroll-review-text: #754a12;
+}
+
+.dark :is(.payroll-shell, .payroll-theme) {
+    --foreground: #f0f3f6;
+    --primary: #a9c7ff;
+    --primary-foreground: #122847;
+    --muted: #252e39;
+    --muted-foreground: #afbac8;
+    --accent: #253c61;
+    --accent-foreground: #d9e7ff;
+    --border: #384351;
+    --input: #526176;
+    --ring: #83aff7;
+    --card: #1b232d;
+    --background: #141a22;
+    --payroll-ready-bg: #153b38;
+    --payroll-ready-border: #26635c;
+    --payroll-ready-text: #a9eadf;
+    --payroll-review-bg: #41311d;
+    --payroll-review-border: #705333;
+    --payroll-review-text: #f8d699;
+}
+
+.payroll-warning {
+    border-color: var(--payroll-review-border);
+    background: var(--payroll-review-bg);
+    color: var(--payroll-review-text);
+}
+
+.payroll-success {
+    border-color: var(--payroll-ready-border);
+    background: var(--payroll-ready-bg);
+    color: var(--payroll-ready-text);
+}
+
+.payroll-theme[data-slot='sheet-content'],
+.payroll-theme[data-slot='dialog-content'] {
+    --color-background: var(--card);
+}
+
+@keyframes payroll-heading-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .payroll-heading {
+        animation: payroll-heading-in 180ms ease-out;
+    }
+}
+
+:is(.payroll-shell, .payroll-theme) :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}

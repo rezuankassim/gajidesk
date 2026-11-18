@@ -54,7 +54,6 @@ export default function Login({
                                     name="email"
                                     required
                                     autoFocus
-                                    tabIndex={1}
                                     autoComplete="email"
                                     placeholder="email@example.com"
                                 />
@@ -68,7 +67,6 @@ export default function Login({
                                         <TextLink
                                             href={request()}
                                             className="ml-auto text-sm"
-                                            tabIndex={5}
                                         >
                                             Forgot password?
                                         </TextLink>
@@ -78,7 +76,6 @@ export default function Login({
                                     id="password"
                                     name="password"
                                     required
-                                    tabIndex={2}
                                     autoComplete="current-password"
                                     placeholder="Password"
                                 />
@@ -88,16 +85,17 @@ export default function Login({
                             <div className="flex items-center space-x-3">
                                 <Checkbox
                                     id="remember"
+                                    aria-labelledby="remember-label"
                                     name="remember"
-                                    tabIndex={3}
                                 />
-                                <Label htmlFor="remember">Remember me</Label>
+                                <Label id="remember-label" htmlFor="remember">
+                                    Remember me
+                                </Label>
                             </div>
 
                             <Button
                                 type="submit"
                                 className="mt-4 w-full"
-                                tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
                             >
@@ -115,7 +113,6 @@ export default function Login({
                                     },
                                 })}
                                 data-test="register-link"
-                                tabIndex={5}
                             >
                                 Sign up
                             </TextLink>
@@ -134,6 +131,6 @@ export default function Login({
 }
 
 Login.layout = {
-    title: 'Log in to your account',
+    title: 'Log in to payroll',
     description: 'Enter your email and password below to log in',
 };

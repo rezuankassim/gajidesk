@@ -10,6 +10,10 @@ trait RedirectsToCurrentTeam
 {
     protected function redirectPathForCurrentTeam(Request $request, string $redirect): string
     {
+        if ($request->user()?->is_payroll_admin) {
+            return route('payroll.index', absolute: false);
+        }
+
         $team = $this->currentTeam($request);
 
         URL::defaults(['current_team' => $team->slug]);
